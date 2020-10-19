@@ -33,7 +33,7 @@ async function updateGist(stats) {
     const line = [
       name.padEnd(11),
       time.padStart(14) + " ",
-      unicodeProgressBar(percent + 15),
+      unicodeProgressBar(percent),
       String(percent.toFixed(1)).padStart(5) + "%"
     ];
 
@@ -77,6 +77,7 @@ const bar_styles = [
 ];
 
 function unicodeProgressBar(p, style = 7, min_size = 20, max_size = 20) {
+  p = Math.min(100, p);
   let d;
   let full;
   let m;
